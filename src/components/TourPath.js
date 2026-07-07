@@ -12,7 +12,7 @@ function TourPath() {
     <section className="tourpath section" id="tour-path" ref={ref}>
       <div className="container">
         <div className="tourpath__head reveal">
-          <p className="eyebrow">The route, stop by stop</p>
+          <p className="eyebrow"><span className="eyebrow-num">03</span> The route, stop by stop</p>
           <h2 className="section-title">Eight stops, one downhill line</h2>
           <p className="section-lede">
             The tour runs the length of Mount Oread and keeps going into town. Pick any stop to

@@ -104,12 +104,13 @@ a {
 
 .section-title {
   font-family: var(--font-display);
-  font-size: clamp(1.9rem, 4vw, 2.8rem);
+  font-size: clamp(2.1rem, 4.6vw, 3.4rem);
   font-weight: 600;
-  line-height: 1.15;
-  letter-spacing: -0.01em;
+  line-height: 1.08;
+  letter-spacing: -0.018em;
   color: var(--navy);
   margin-top: var(--space-2);
+  text-wrap: balance;
 }
 
 .section-lede {
@@ -200,6 +201,57 @@ a {
 .reveal-delay-1 { transition-delay: 0.12s; }
 .reveal-delay-2 { transition-delay: 0.24s; }
 .reveal-delay-3 { transition-delay: 0.36s; }
+
+/* Kicker numerals --------------------------------------------------------- */
+
+.eyebrow-num,
+.hero__eyebrow-num {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  color: var(--gold);
+  margin-right: 0.5rem;
+}
+
+/* Magnetic CTA ------------------------------------------------------------ */
+
+.magnetic {
+  position: relative;
+  will-change: transform;
+  transition: transform 0.3s cubic-bezier(0.22, 0.61, 0.36, 1),
+    background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.magnetic__label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  pointer-events: none;
+}
+
+/* Duotone art direction: unified graded stills that bloom to full colour
+   when their card is hovered — one consistent treatment across the site. */
+.duotone {
+  filter: grayscale(100%) contrast(1.04) brightness(0.98);
+  transition: filter 0.6s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+.hero__card-inner:hover .duotone,
+.landmark:hover .duotone {
+  filter: grayscale(0%) contrast(1) brightness(1);
+}
+
+/* Editorial drop cap ------------------------------------------------------ */
+
+.dropcap::first-letter {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 3.6em;
+  line-height: 0.72;
+  float: left;
+  margin: 0.06em 0.1em 0 0;
+  color: var(--ku-crimson);
+}
 
 @media (prefers-reduced-motion: reduce) {
   html {

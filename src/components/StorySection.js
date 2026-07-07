@@ -29,11 +29,11 @@ function StorySection() {
     <section className="story section" id="story" ref={ref}>
       <div className="container story__grid">
         <div className="story__intro reveal">
-          <p className="eyebrow">Why start with the town</p>
+          <p className="eyebrow"><span className="eyebrow-num">02</span> Why start with the town</p>
           <h2 className="section-title">
             The university sits on the hill.<br />The character comes from below it.
           </h2>
-          <p className="section-lede">
+          <p className="section-lede dropcap">
             Most campus tours begin and end at the property line. This one doesn&apos;t, because
             KU never really did. The habits, the traditions, even the walk to class are shaped by
             a town that was here first and is woven through everything on the ridge above it.

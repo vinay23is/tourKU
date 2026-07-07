@@ -1,0 +1,20 @@
+.revealtext {
+  display: block;
+}
+
+.revealtext__mask {
+  display: block;
+  overflow: hidden;
+  /* room for descenders so the mask doesn't clip g/y/j */
+  padding-bottom: 0.08em;
+  margin-bottom: -0.08em;
+}
+
+.revealtext__line {
+  display: block;
+  will-change: transform;
+}
+
+.revealtext__line-static {
+  display: block;
+}

@@ -1,10 +1,10 @@
 import { render, screen } from '@testing-library/react';
 import App from './App';
 
-test('renders the hero headline', () => {
+test('renders the hero headline and primary CTA', () => {
   render(<App />);
-  const heading = screen.getByRole('heading', {
-    name: /Tour KU through the story of Lawrence/i,
-  });
-  expect(heading).toBeInTheDocument();
+  // The headline is split across masked lines, so match the closing word.
+  expect(screen.getAllByText(/Lawrence\./i).length).toBeGreaterThan(0);
+  // "Start the tour" appears in the nav and the hero.
+  expect(screen.getAllByText(/Start the tour/i).length).toBeGreaterThan(0);
 });

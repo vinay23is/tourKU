@@ -30,7 +30,7 @@ function RouteMap() {
     <section className="routemap section" id="route" ref={ref}>
       <div className="container">
         <div className="routemap__head reveal">
-          <p className="eyebrow">See the whole line</p>
+          <p className="eyebrow"><span className="eyebrow-num">05</span> See the whole line</p>
           <h2 className="section-title">From the top of the hill to Mass Street</h2>
           <p className="section-lede">
             The route falls away from the crest of the hill at Fraser and keeps dropping until it

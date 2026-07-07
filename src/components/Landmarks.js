@@ -44,7 +44,7 @@ function Landmarks() {
     <section className="landmarks section" id="landmarks" ref={ref}>
       <div className="container">
         <div className="landmarks__head reveal">
-          <p className="eyebrow">Featured on the hill</p>
+          <p className="eyebrow"><span className="eyebrow-num">04</span> Featured on the hill</p>
           <h2 className="section-title">The places you&apos;ll remember</h2>
           <p className="section-lede">
             A few stops carry more weight than the rest — the ones people describe when they try

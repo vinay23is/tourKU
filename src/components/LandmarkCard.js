@@ -6,7 +6,7 @@ function LandmarkCard({ landmark, featured = false }) {
   return (
     <article className={`landmark ${featured ? 'landmark--featured' : ''}`}>
       <div className="landmark__media">
-        <img src={image} alt={name} loading="lazy" />
+        <img src={image} alt={name} loading="lazy" className="duotone" />
         <span className="landmark__tag">{tag}</span>
       </div>
       <div className="landmark__body">

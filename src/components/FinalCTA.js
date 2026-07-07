@@ -7,7 +7,7 @@ function FinalCTA() {
   return (
     <section className="finalcta section" id="plan" ref={ref}>
       <div className="container finalcta__inner reveal">
-        <p className="eyebrow eyebrow--light">Ready when you are</p>
+        <p className="eyebrow eyebrow--light"><span className="eyebrow-num">07</span> Ready when you are</p>
         <h2 className="finalcta__title">Plan your KU walk</h2>
         <p className="finalcta__lede">
           Start at the top of the hill, follow the eight stops down, and end wherever Mass Street

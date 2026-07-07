@@ -9,10 +9,10 @@ import TraditionsSection from '../TraditionsSection';
 import FinalCTA from '../FinalCTA';
 import Footer from '../Footer';
 
-function Home() {
+function Home({ ready }) {
   return (
     <>
-      <HeroSection />
+      <HeroSection ready={ready} />
       <StorySection />
       <TourPath />
       <Landmarks />

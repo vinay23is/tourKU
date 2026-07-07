@@ -1,6 +1,10 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import './HeroSection.css';
 import ParallaxLayer from './ParallaxLayer';
+import RevealText from './motion/RevealText';
+import MagneticButton from './MagneticButton';
+import usePrefersReducedMotion from '../hooks/usePrefersReducedMotion';
 
 // Decorative contour lines echoing a topographic map of the hill.
 function ContourLines() {
@@ -51,7 +55,27 @@ function HillSilhouette() {
   );
 }
 
-function HeroSection() {
+const cards = [
+  { cls: 'hero__card--main', speed: -0.06, src: '/images/kucampus.jpg', tag: 'Jayhawk Boulevard', delay: 0.1 },
+  { cls: 'hero__card--a', speed: -0.12, src: '/images/kujayhawk.jpg', tag: 'The Jayhawk', delay: 0.24 },
+  { cls: 'hero__card--b', speed: -0.18, src: '/images/kuwescoe.webp', tag: 'Wescoe Beach', delay: 0.38 },
+];
+
+function HeroSection({ ready }) {
+  const reduced = usePrefersReducedMotion();
+  // Play the headline reveal once the intro has cleared (or immediately when
+  // motion is reduced / the intro is skipped).
+  const play = reduced ? true : ready;
+
+  const fade = (delay) =>
+    reduced
+      ? {}
+      : {
+          initial: { opacity: 0, y: 20 },
+          animate: play ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 },
+          transition: { duration: 0.7, delay, ease: [0.22, 0.61, 0.36, 1] },
+        };
+
   return (
     <section className="hero" id="top" aria-label="Introduction">
       <ParallaxLayer speed={0.25} className="hero__layer" aria-hidden="true">
@@ -64,38 +88,56 @@ function HeroSection() {
 
       <div className="hero__content container">
         <div className="hero__copy">
-          <p className="hero__eyebrow">Lawrence, Kansas · Mount Oread</p>
-          <h1 className="hero__title">
-            Tour KU through the story of <em>Lawrence</em>.
-          </h1>
-          <p className="hero__sub">
+          <motion.p className="hero__eyebrow" {...fade(0.15)}>
+            <span className="hero__eyebrow-num">01</span> Lawrence, Kansas · Mount Oread
+          </motion.p>
+
+          <RevealText
+            as="h1"
+            className="hero__title"
+            play={play}
+            delay={0.3}
+            lines={[
+              <>Tour KU through</>,
+              <>the story of</>,
+              <em key="l">Lawrence.</em>,
+            ]}
+          />
+
+          <motion.p className="hero__sub" {...fade(0.95)}>
             One walking route connects the landmarks on the hill, the traditions that live in
             them, and the town at the bottom of Jayhawk Boulevard. Lawrence is not just where KU
             is located — it is the town that shaped the whole experience.
-          </p>
-          <div className="hero__actions">
-            <a href="#tour-path" className="cta cta--primary">
+          </motion.p>
+
+          <motion.div className="hero__actions" {...fade(1.1)}>
+            <MagneticButton href="#tour-path" className="cta cta--primary" data-cursor="Walk">
               Start the tour
-            </a>
-            <a href="#landmarks" className="cta cta--ghost">
+            </MagneticButton>
+            <MagneticButton href="#landmarks" className="cta cta--ghost">
               Explore landmarks
-            </a>
-          </div>
+            </MagneticButton>
+          </motion.div>
         </div>
 
         <div className="hero__visual" aria-hidden="true">
-          <ParallaxLayer speed={-0.06} className="hero__card hero__card--main">
-            <img src="/images/kucampus.jpg" alt="" loading="eager" />
-            <span className="hero__card-tag">Jayhawk Boulevard</span>
-          </ParallaxLayer>
-          <ParallaxLayer speed={-0.12} className="hero__card hero__card--small hero__card--a">
-            <img src="/images/kujayhawk.jpg" alt="" loading="lazy" />
-            <span className="hero__card-tag">The Jayhawk</span>
-          </ParallaxLayer>
-          <ParallaxLayer speed={-0.18} className="hero__card hero__card--small hero__card--b">
-            <img src="/images/kuwescoe.webp" alt="" loading="lazy" />
-            <span className="hero__card-tag">Wescoe Beach</span>
-          </ParallaxLayer>
+          {cards.map((c) => (
+            <ParallaxLayer key={c.cls} speed={c.speed} className={`hero__card ${c.cls}`}>
+              <motion.div
+                className="hero__card-inner"
+                initial={reduced ? false : { opacity: 0, y: 40, rotate: -2 }}
+                animate={
+                  reduced || play
+                    ? { opacity: 1, y: 0, rotate: 0 }
+                    : { opacity: 0, y: 40, rotate: -2 }
+                }
+                transition={{ duration: 0.8, delay: c.delay + 0.4, ease: [0.22, 0.61, 0.36, 1] }}
+              >
+                <img src={c.src} alt="" loading="eager" className="duotone" />
+                <span className="hero__card-tag">{c.tag}</span>
+              </motion.div>
+            </ParallaxLayer>
+          ))}
           <svg className="hero__route-line" viewBox="0 0 300 400" aria-hidden="true">
             <path
               d="M40 380 C 90 300, 30 220, 120 170 S 260 90, 250 20"
@@ -111,12 +153,12 @@ function HeroSection() {
         </div>
       </div>
 
-      <a href="#story" className="hero__scroll-hint">
+      <motion.a href="#story" className="hero__scroll-hint" {...fade(1.3)}>
         <span>The story starts downhill</span>
         <svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true">
           <path d="M8 12 L2 6 M8 12 L14 6" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" />
         </svg>
-      </a>
+      </motion.a>
     </section>
   );
 }

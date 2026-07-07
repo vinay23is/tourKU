@@ -38,7 +38,7 @@ function TraditionsSection() {
       />
       <div className="container traditions__inner">
         <div className="traditions__head reveal">
-          <p className="eyebrow eyebrow--light">What sticks with you</p>
+          <p className="eyebrow eyebrow--light"><span className="eyebrow-num">06</span> What sticks with you</p>
           <h2 className="section-title traditions__title">
             Traditions you can&apos;t read about — only stand in
           </h2>

@@ -1,0 +1,6 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    { "name": "tourku-dev", "runtimeExecutable": "npx", "runtimeArgs": ["serve", "-s", "build", "-l", "4173"], "port": 4173 }
+  ]
+}

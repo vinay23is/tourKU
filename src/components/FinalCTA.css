@@ -1,0 +1,64 @@
+.finalcta {
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+  color: #fff;
+  background:
+    radial-gradient(900px 500px at 50% -30%, rgba(232, 0, 13, 0.4), transparent 60%),
+    linear-gradient(160deg, var(--navy), var(--ku-blue-deep));
+}
+
+.finalcta::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-size: 54px 54px;
+  mask-image: radial-gradient(circle at 50% 40%, #000, transparent 70%);
+  pointer-events: none;
+}
+
+.finalcta__inner {
+  position: relative;
+  z-index: 1;
+  max-width: 40rem;
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.finalcta .eyebrow--light::before {
+  display: none;
+}
+
+.finalcta__title {
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 5vw, 3.4rem);
+  font-weight: 600;
+  line-height: 1.1;
+  margin-top: var(--space-2);
+}
+
+.finalcta__lede {
+  margin-top: var(--space-2);
+  font-size: 1.08rem;
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.finalcta__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-2);
+  margin-top: var(--space-4);
+}
+
+@media (max-width: 520px) {
+  .finalcta__actions .cta {
+    flex: 1 1 100%;
+    justify-content: center;
+  }
+}

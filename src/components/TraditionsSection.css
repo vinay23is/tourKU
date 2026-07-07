@@ -1,0 +1,90 @@
+.traditions {
+  position: relative;
+  overflow: hidden;
+  background:
+    linear-gradient(180deg, var(--ku-blue-deep), #061530);
+  color: #fff;
+}
+
+.traditions__bg {
+  position: absolute;
+  inset: -20% 0 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0.16;
+  will-change: transform;
+}
+
+.traditions__inner {
+  position: relative;
+  z-index: 1;
+}
+
+.eyebrow--light {
+  color: var(--gold);
+}
+
+.eyebrow--light::before {
+  background: var(--gold);
+}
+
+.traditions__title {
+  color: #fff;
+  max-width: 24ch;
+}
+
+.traditions__lede {
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.traditions__head {
+  max-width: 42rem;
+  margin-bottom: var(--space-5);
+}
+
+.traditions__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-3);
+}
+
+.traditions__card {
+  position: relative;
+  padding: var(--space-4);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: background-color 0.25s ease, transform 0.25s ease, border-color 0.25s ease;
+}
+
+.traditions__card:hover {
+  background: rgba(255, 255, 255, 0.09);
+  border-color: rgba(255, 255, 255, 0.3);
+  transform: translateY(-4px);
+}
+
+.traditions__index {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.22);
+}
+
+.traditions__card h3 {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 600;
+  margin-top: 4px;
+}
+
+.traditions__card p {
+  margin-top: 8px;
+  color: rgba(255, 255, 255, 0.82);
+}
+
+@media (max-width: 720px) {
+  .traditions__grid {
+    grid-template-columns: 1fr;
+  }
+}

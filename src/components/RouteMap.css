@@ -1,0 +1,156 @@
+.routemap {
+  background: linear-gradient(180deg, #fff, var(--limestone));
+}
+
+.routemap__head {
+  max-width: 40rem;
+  margin-bottom: var(--space-4);
+}
+
+.routemap__figure {
+  margin: 0;
+  position: relative;
+  background: var(--offwhite);
+  border: 1px solid var(--limestone-dark);
+  border-radius: var(--radius-lg);
+  padding: var(--space-3);
+  box-shadow: var(--shadow-card);
+}
+
+.routemap__svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.routemap__track {
+  fill: none;
+  stroke: var(--limestone-dark);
+  stroke-width: 5;
+  stroke-linecap: round;
+}
+
+.routemap__progress {
+  fill: none;
+  stroke: var(--ku-crimson);
+  stroke-width: 4;
+  stroke-linecap: round;
+  stroke-dasharray: 1500;
+  stroke-dashoffset: 1500;
+}
+
+.is-revealed .routemap__progress {
+  animation: routemap-draw 2.4s ease forwards 0.3s;
+}
+
+@keyframes routemap-draw {
+  to { stroke-dashoffset: 0; }
+}
+
+/* Stops --------------------------------------------------------------------- */
+
+.routemap__stop {
+  cursor: pointer;
+  outline: none;
+}
+
+.routemap__halo {
+  fill: rgba(0, 81, 186, 0.14);
+  opacity: 0;
+  transform-box: fill-box;
+  transform-origin: center;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.routemap__stop:hover .routemap__halo,
+.routemap__stop.is-active .routemap__halo,
+.routemap__stop:focus-visible .routemap__halo {
+  opacity: 1;
+  transform: scale(1.15);
+}
+
+.routemap__dot {
+  fill: var(--ku-blue);
+  stroke: #fff;
+  stroke-width: 3;
+  transition: fill 0.2s ease;
+}
+
+.routemap__stop:hover .routemap__dot,
+.routemap__stop.is-active .routemap__dot,
+.routemap__stop:focus-visible .routemap__dot {
+  fill: var(--ku-crimson);
+}
+
+.routemap__stop:focus-visible .routemap__dot {
+  stroke: var(--gold);
+}
+
+.routemap__dot-num {
+  fill: #fff;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 15px;
+  text-anchor: middle;
+  pointer-events: none;
+}
+
+.routemap__label {
+  fill: var(--navy);
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 20px;
+  letter-spacing: 0.02em;
+}
+
+.routemap__label--end {
+  text-anchor: end;
+}
+
+/* Caption ------------------------------------------------------------------- */
+
+.routemap__caption {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 6px 12px;
+  min-height: 1.5rem;
+  margin-top: var(--space-3);
+  padding-top: var(--space-2);
+  border-top: 1px solid var(--limestone-dark);
+}
+
+.routemap__caption-num {
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ku-crimson);
+}
+
+.routemap__caption strong {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  color: var(--navy);
+}
+
+.routemap__caption-cat {
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+}
+
+.routemap__caption-hint {
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+  font-style: italic;
+}
+
+@media (max-width: 560px) {
+  .routemap__label {
+    font-size: 26px;
+  }
+
+  .routemap__dot-num {
+    font-size: 17px;
+  }
+}

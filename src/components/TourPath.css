@@ -1,0 +1,212 @@
+.tourpath {
+  background: var(--navy);
+  color: #fff;
+}
+
+.tourpath .section-title {
+  color: #fff;
+}
+
+.tourpath .section-lede {
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.tourpath__head {
+  max-width: 40rem;
+}
+
+.tourpath__body {
+  display: grid;
+  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+  gap: var(--space-4);
+  margin-top: var(--space-5);
+}
+
+/* Stop list ----------------------------------------------------------------- */
+
+.tourpath__list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.tourpath__item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  width: 100%;
+  padding: 12px 14px;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius);
+  color: #fff;
+  cursor: pointer;
+  text-align: left;
+  transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.15s ease;
+}
+
+.tourpath__item:hover {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.22);
+}
+
+.tourpath__item:focus-visible {
+  outline: 3px solid var(--gold);
+  outline-offset: 2px;
+}
+
+.tourpath__item--active {
+  background: linear-gradient(90deg, rgba(232, 0, 13, 0.18), rgba(0, 81, 186, 0.14));
+  border-color: var(--ku-crimson);
+}
+
+.tourpath__num {
+  flex: 0 0 auto;
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.9rem;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.tourpath__item--active .tourpath__num {
+  background: var(--ku-crimson);
+}
+
+.tourpath__item-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.25;
+}
+
+.tourpath__item-name {
+  font-weight: 600;
+}
+
+.tourpath__item-cat {
+  font-size: 0.78rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* Detail panel -------------------------------------------------------------- */
+
+.tourpath__detail {
+  background: linear-gradient(180deg, var(--navy-soft), #0f2145);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--radius-lg);
+  padding: var(--space-4);
+  animation: tourpath-fade 0.45s ease;
+}
+
+@keyframes tourpath-fade {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: none; }
+}
+
+.tourpath__detail-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+}
+
+.tourpath__badge {
+  font-size: 0.76rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.tourpath__time {
+  font-size: 0.82rem;
+  padding: 4px 12px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.tourpath__detail-name {
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem, 3vw, 2.1rem);
+  font-weight: 600;
+  margin-top: var(--space-2);
+}
+
+.tourpath__detail-short {
+  font-size: 1.1rem;
+  color: var(--limestone);
+  margin-top: 6px;
+}
+
+.tourpath__detail-story {
+  margin-top: var(--space-2);
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.tourpath__why {
+  margin-top: var(--space-3);
+  padding: 14px 16px;
+  border-left: 3px solid var(--ku-crimson);
+  background: rgba(232, 0, 13, 0.08);
+  border-radius: 0 var(--radius) var(--radius) 0;
+}
+
+.tourpath__why-label {
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.tourpath__why p {
+  margin-top: 4px;
+  color: #fff;
+}
+
+.tourpath__nav {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-2);
+  margin-top: var(--space-4);
+}
+
+.tourpath__step {
+  padding: 10px 18px;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 999px;
+  color: #fff;
+  font-weight: 600;
+  font-size: 0.88rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.tourpath__step:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: #fff;
+}
+
+.tourpath__step:focus-visible {
+  outline: 3px solid var(--gold);
+  outline-offset: 2px;
+}
+
+.tourpath__step:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+@media (max-width: 880px) {
+  .tourpath__body {
+    grid-template-columns: 1fr;
+  }
+}
